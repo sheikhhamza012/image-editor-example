@@ -5104,8 +5104,15 @@ react-native-fs@2.14.1:
     base-64 "^0.1.0"
     utf8 "^2.1.1"
 
-react-native-photo-editor@../:
-  version "1.0.0"
+react-native-image-picker@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-2.2.1.tgz#0d8551e171338c1f79c0950112c82ced86c664a6"
+  integrity sha512-r0RZtMxYFPOW+NbRBiN68/8pazVDBO+GUeqBQ0B+SQQPz/hgrW4ikXHoQn3R0mp3Qp1xNboHzfQDVW4VVyI6bQ==
+
+react-native-photo-editor@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-photo-editor/-/react-native-photo-editor-1.0.5.tgz#4c3706cdab9b7ed96fef00bba9fdd662a72efa28"
+  integrity sha512-o23XBrRrd8rXpzN5ikVl3+4RU4MwgBpgfC2k7ic5ybM3RC0KCYD0BfTahoRDTpLUpiJFWhfMKZuiXXv8ifjcYw==
 
 react-native@0.61.2:
   version "0.61.2"
