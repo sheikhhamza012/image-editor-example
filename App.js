@@ -34,20 +34,20 @@ export default class App extends Component<Props> {
             'sticker8',
             'sticker9',
             'sticker10',
-            'sticker11',
-            'sticker12',
-            'sticker13',
-            'sticker14',
-            'sticker15',
-            'sticker16',
-            'sticker17',
-            'sticker18',
-            'sticker19',
-            'sticker20',
-            'sticker21',
-            'sticker22',
-            'sticker23',
-            'sticker24',
+            // 'sticker11',
+            // 'sticker12',
+            // 'sticker13',
+            // 'sticker14',
+            // 'sticker15',
+            // 'sticker16',
+            // 'sticker17',
+            // 'sticker18',
+            // 'sticker19',
+            // 'sticker20',
+            // 'sticker21',
+            // 'sticker22',
+            // 'sticker23',
+            // 'sticker24',
           ],
         //   hiddenControls: ['clear', 'crop', 'draw', 'save', 'share', 'sticker', 'text'],
           hiddenControls: ['share'],
@@ -60,6 +60,25 @@ export default class App extends Component<Props> {
           },
         });
     }
+    componentDidMount() {
+      let photoPath = RNFS.DocumentDirectoryPath + '/photo.jpg'
+      let binaryFile = resolveAssetSource(photo)
+
+      RNFetchBlob.config({ fileCache: true })
+          .fetch('GET', binaryFile.uri)
+          .then(resp => {
+              RNFS.moveFile(resp.path(), photoPath)
+                  .then(() => {
+                      console.log('FILE WRITTEN!')
+                  })
+                  .catch(err => {
+                      console.log(err.message)
+                  })
+          })
+          .catch(err => {
+              console.log(err.message)
+          })
+  }
     selectPic=()=>{
         this.setState({isLoading:true})
         const options = {
