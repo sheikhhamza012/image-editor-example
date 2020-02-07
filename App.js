@@ -60,25 +60,25 @@ export default class App extends Component<Props> {
           },
         });
     }
-    componentDidMount() {
-      let photoPath = RNFS.DocumentDirectoryPath + '/photo.jpg'
-      let binaryFile = resolveAssetSource(photo)
+  //   componentDidMount() {
+  //     let photoPath = RNFS.DocumentDirectoryPath + '/photo.jpg'
+  //     let binaryFile = resolveAssetSource(photo)
 
-      RNFetchBlob.config({ fileCache: true })
-          .fetch('GET', binaryFile.uri)
-          .then(resp => {
-              RNFS.moveFile(resp.path(), photoPath)
-                  .then(() => {
-                      console.log('FILE WRITTEN!')
-                  })
-                  .catch(err => {
-                      console.log(err.message)
-                  })
-          })
-          .catch(err => {
-              console.log(err.message)
-          })
-  }
+  //     RNFetchBlob.config({ fileCache: true })
+  //         .fetch('GET', binaryFile.uri)
+  //         .then(resp => {
+  //             RNFS.moveFile(resp.path(), photoPath)
+  //                 .then(() => {
+  //                     console.log('FILE WRITTEN!')
+  //                 })
+  //                 .catch(err => {
+  //                     console.log(err.message)
+  //                 })
+  //         })
+  //         .catch(err => {
+  //             console.log(err.message)
+  //         })
+  // }
     selectPic=()=>{
         this.setState({isLoading:true})
         const options = {
@@ -101,6 +101,9 @@ export default class App extends Component<Props> {
                 alert(JSON.stringify(response.error))
               console.log('ImagePicker Error: ', response.error);
             }  else {
+              //   RNFS.unlink(RNFS.DocumentDirectoryPath + '/photo.jpg').catch((err) => {
+              //   console.log(err.message);
+              // });
                 RNFS.moveFile(response.uri, RNFS.DocumentDirectoryPath + '/photo.jpg')
                     .then(() => {
                         console.log('FILE WRITTEN!')
